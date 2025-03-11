@@ -1,6 +1,105 @@
-/******* Change Box Model ***************/
-*,
-*:before,
-*:after {
+:root {
+  --primary-color: #E3E7AF;
+  --secondary-color: #A2A77F;
+  --background-color: #EFF1C5;
+  --card-background-color: #035E7B; 
+
+  --heading-font: "Playfair", serif;
+  --paragraph-font: "Barlow", sans-serif;
+
+  --primary-text-color: #ffffff;
+  --secondary-text-color: #000000;
+  --nav-link-color: var(--primary-text-color);
+  --nav-background-color: var(--primary-color);
+  --nav-hover-link-color:var(--secondary-text-color);
+  --nav-hover-background-color: var(--secondary-color);
+}
+
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: var(--paragraph-font);
+  background-color: var(--background-color);
+  color: var(--secondary-text-color);
+}
+
+#wrapper {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/*******************************/
+/******* HEADER                */
+/*******************************/
+
+#top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--card-background-color);
+  color: var(--primary-text-color);
+  padding: 10px;
+}
+
+#top-header .siteName a {
+  color: var(--primary-text-color);
+  text-decoration: none;
+  font-size: 24px;
+  font-family: var(--heading-font);
+}
+
+#tools a {
+  color: var(--primary-text-color);
+  text-decoration: none;
+}
+
+/*NAVIGATION BAR*/
+#navigation {
+  background-color: var(--card-background-color);
+  padding: 10px;
+}
+
+#navigation ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+#navigation li {
+  font-size: 18px;
+}
+
+#navigation a {
+  color: var(--nav-link-color);
+  text-decoration: none;
+}
+
+#navigation a:hover {
+  color: var(--nav-hover-link-color);
+  background-color: var(--nav-hover-background-color);
+  text-decoration: underline;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* Main content */
+main {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  background-color: var(--card-background-color);
+  color: var(--primary-text-color);
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+  font-family: var(--heading-font);
 }
