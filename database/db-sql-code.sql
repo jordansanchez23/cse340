@@ -2,7 +2,7 @@ CREATE TYPE public.account_type AS ENUM
     ('Client', 'Employee', 'Admin');
 
 ALTER TYPE public.account_type
-    OWNER TO cse340;
+    OWNER TO cse400;
 
 -- Table structure for table `classification`
 CREATE TABLE public.classification (
@@ -236,3 +236,13 @@ VALUES   (
     'White',
     5
   );
+
+--Query #4 Activity one W02
+UPDATE inventory
+SET inv_description = REPLACE(inv_description, 'the small interiors', 'a huge interior')
+WHERE inv_id = 10;
+
+--Query #6 Activity one W02 
+UPDATE inventory
+SET inv_image = REPLACE(inv_image, '/images/', '/images/vehicles/'),
+	inv_thumbnail = REPLACE(inv_thumbnail, '/images/', '/images/vehicles/');
