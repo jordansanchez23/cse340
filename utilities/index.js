@@ -58,6 +58,49 @@ Util.buildClassificationGrid = async function(data){
   return grid
 }
 
+
+/* ****************************************
+ * Build the vehicle detail HTML
+ **************************************** */
+Util.buildVehicleDetailView = function (vehicle) {
+  if (!vehicle) {
+      return "<p class='notice'>Vehicle details not found.</p>";
+  }
+
+  let detailView = `
+  <div class="vehicle-detail">
+      <h1>${vehicle.inv_make} ${vehicle.inv_model}</h1>
+      <img src="${vehicle.inv_image}" alt="Image of ${vehicle.inv_make} ${vehicle.inv_model}" class="vehicle-image">
+      <div class="vehicle-info">
+          <p><strong>Year:</strong> ${vehicle.inv_year}</p>
+          <p><strong>Price:</strong> ${Util.formatCurrency(vehicle.inv_price)}</p>
+          <p><strong>Mileage:</strong> ${Util.formatMileage(vehicle.inv_miles)} miles</p>
+          <p><strong>Description:</strong> ${vehicle.inv_description}</p>
+          <p><strong>Color:</strong> ${vehicle.inv_color}</p>
+      </div>
+  </div>`;
+
+  return detailView;
+};
+
+
+/* ****************************************
+ * Format currency values (e.g., "$12,345.00")
+ **************************************** */
+Util.formatCurrency = function (price) {
+  return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+  }).format(price);
+};
+
+/* ****************************************
+* Format mileage with commas (e.g., "12,345")
+**************************************** */
+Util.formatMileage = function (mileage) {
+  return mileage.toLocaleString("en-US");
+};
+
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 
